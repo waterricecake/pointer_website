@@ -1,6 +1,7 @@
 package com.example.pointer.model.entity;
 
 import lombok.*;
+import lombok.experimental.Accessors;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -11,6 +12,7 @@ import java.time.LocalDateTime;
 @Entity
 @Builder
 @ToString(exclude = "user")
+@Accessors(chain = true)
 public class UserData {
 
     @Id

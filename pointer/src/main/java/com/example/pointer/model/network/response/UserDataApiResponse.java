@@ -1,5 +1,6 @@
 package com.example.pointer.model.network.response;
 
+import com.example.pointer.model.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
