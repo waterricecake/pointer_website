@@ -32,8 +32,6 @@ public class UserDataApiLogicService implements CrudInterface<UserDataApiRequest
                 .nodRl(userDataApiRequest.getNodRl())
                 .nodFr(userDataApiRequest.getNodFr())
                 .stt(userDataApiRequest.getStt())
-                .createdAt(LocalDateTime.now())
-                .createdBy("ADMINUSER")
                 .user(userRepository.getReferenceById(userDataApiRequest.getUserId()))
                 .build();
         UserData newData = userDataRepository.save(userData);
@@ -69,8 +67,6 @@ public class UserDataApiLogicService implements CrudInterface<UserDataApiRequest
                 .nodRl(userData.getNodRl())
                 .nodFr(userData.getNodFr())
                 .stt(userData.getStt())
-                .createdAt(userData.getCreatedAt())
-                .createdBy(userData.getCreatedBy())
                 .build();
 
         return Header.OK(userDataApiResponse);

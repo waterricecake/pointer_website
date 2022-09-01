@@ -32,13 +32,10 @@ public class CreateAccountController {
         ).orElseGet(()->{User user = User.builder()
                 .account(user_id)
                 .password(user_pw)
-                .createdAt(LocalDateTime.now())
-                .createdBy("ADMINUSER")
                 .build();
         User newUser = userRepository.save(user);
         return "생성되었습니다";});
 
 
     }
-
 }

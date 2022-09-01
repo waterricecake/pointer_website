@@ -2,6 +2,9 @@ package com.example.pointer.model.entity;
 
 import lombok.*;
 import lombok.experimental.Accessors;
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -13,6 +16,7 @@ import java.time.LocalDateTime;
 @Builder
 @ToString(exclude = "user")
 @Accessors(chain = true)
+@EntityListeners(AuditingEntityListener.class)
 public class UserData {
 
     @Id
@@ -29,8 +33,10 @@ public class UserData {
 
     private String stt;
 
+    @CreatedDate
     private LocalDateTime createdAt;
 
+    @CreatedBy
     private String createdBy;
 
     @ManyToOne
