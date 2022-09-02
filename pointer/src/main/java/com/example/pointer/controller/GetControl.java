@@ -13,7 +13,7 @@ public class GetControl {
     @Autowired
     private UserRepository userRepository;
 
-    @GetMapping("/getParameter/")
+    @GetMapping("/getParameter")
     public String getParmeter(@RequestParam String user_id, @RequestParam String user_pw){
 
         Optional<User> optional = Optional.ofNullable(userRepository.findFirstByAccount(user_id));

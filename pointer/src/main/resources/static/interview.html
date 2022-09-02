@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- ===============================================-->
+  <!--    Document Title-->
+  <!-- ===============================================-->
+  <title>PO-inter</title>
+
+  <!-- ===============================================-->
+  <!--    Favicons-->
+  <!-- ===============================================-->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/favicon-16x16.png">
+  <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicons/favicon.ico">
+  <link rel="manifest" href="assets/img/favicons/manifest.json">
+  <meta name="msapplication-TileImage" content="assets/img/favicons/mstile-150x150.png">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- ===============================================-->
+  <!--    Stylesheets-->
+  <!-- ===============================================-->
+  <link href="assets/css/theme.css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+  <!-- ===============================================-->
+  <!--    Main Content-->
+  <!-- ===============================================-->
+  <main class="main" id="top">
+
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top py-3 d-block"
+      data-navbar-on-scroll="data-navbar-on-scroll">
+      <div class="container"><a class="navbar-brand" href="/home"><img src="assets/img/gallery/logo-po.png"
+                                                                            height="45" alt="logo" /></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
+            class="navbar-toggler-icon"> </span></button>
+        <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base">
+            <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="/home">Home</a></li>
+            <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="/script">면접답변 생성</a></li>
+            <li class="nav-item px-2"><a class="nav-link active" aria-current="page" href="/interview">모의면접 응시</a>
+            </li>
+            <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="/result">나의 면접</a></li>
+          </ul><a class="btn btn-primary order-1 order-lg-0" aria-current="page" href="/login">LOGIN</a>
+
+        </div>
+      </div>
+    </nav>
+
+    <!-- ============================================-->
+    <!-- <section> begin ============================-->
+    <section class="bg-600">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h1 class="mb-2 fw-bold text-center">모의면접 응시하기</h1>
+            <h6 class="fw-bold text-center">1. 모의 면접에 앞서 웹 캠, 마이크 세팅을 완료해주세요</h6>
+            <h6 class="fw-bold text-center">2. 녹화 버튼을 눌러 제시된 질문에 답변하세요.</h6>
+            <h6 class="mb-5 fw-bold text-center">3. 다음 질문을 클릭해 답변 후 완료 버튼을 눌러 제출해주세요</h6>
+            <div class="row align-items-center justify-content-center text-center">
+              <div class="col col-md-5 mb-4">
+                <ul class="nav nav-pills">
+                  <li class="nav-item col-md-3">
+                    <a class="nav-link active" data-toggle="tab" href="#qwe">질문1</a>
+                  </li>
+                  <li class="nav-item col-md-3">
+                    <a class="nav-link" data-toggle="tab" href="#asd">질문2</a>
+                  </li>
+                  <li class="nav-item col-md-3">
+                    <a class="nav-link" data-toggle="tab" href="#zxc">질문3</a>
+                  </li>
+                  <li class="nav-item col-md-3">
+                    <a class="nav-link" data-toggle="tab" href="#poi">질문4</a>
+                  </li>
+                </ul>
+                <div class="tab-content">
+                  <div class="tab-pane fade show active" id="qwe">
+                    <p><br>자신이 얼마짜리 사람이라고 생각합니까?</p>
+                  </div>
+                  <div class="tab-pane fade" id="asd">
+                    <p><br>본사가 당신을 채용하지 않을 경우 왜 손해입니까?</p>
+                  </div>
+                  <div class="tab-pane fade" id="zxc">
+                    <p><br>주변사람들은 당신을 어떻게 평가하십니까?</p>
+                  </div>
+                  <div class="tab-pane fade" id="poi">
+                    <p><br>이 직무를 일하면서 가장 어려울 것이 무엇이라고 생각하십니까?</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row align-items-center justify-content-center text-center">
+          <div class="col col-md-5 align-items-center">
+            <div class="card mb-md-1 h-75">
+              <div class="card-body">
+                <video id="videoElement" autoplay muted></video>
+              </div>
+            </div>
+            <div class="row row-md-10 py-lg-4 align-items-center">
+              <div class="col mb-3 align-items-center">
+                <div class="row">
+                  <div class="row-cols-3">
+                    <button class="record-button btn-recording px-lg-4 btn-lg btn-secondary rounded-1">녹화</button>
+                    <button class="stop-button btn-recording px-lg-4 btn-lg btn-secondary mx-1 rounded-1">완료</button>
+                  </div>
+                </div>
+              </div>
+              <div class="row-cols-1 px-4">
+                <a class="btn btn-lg btn-primary" href="/loading" role="button">제출하기</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end of .container-->
+
+    </section>
+    <!-- <section> close ============================-->
+    <!-- ============================================-->
+
+  </main>
+  <!-- ===============================================-->
+  <!--    End of Main Content-->
+  <!-- ===============================================-->
+
+  <!-- ===============================================-->
+  <!--    JavaScripts-->
+  <!-- ===============================================-->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+  <script src="vendors/bootstrap/bootstrap.min.js"></script>
+  <script src="vendors/is/is.min.js"></script>
+  <script src="vendors/fontawesome/all.min.js"></script>
+  <script src="assets/js/theme.js"></script>
+  <script src="js/camera.js"></script>
+
+</body>
+
+</html>

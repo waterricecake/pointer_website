@@ -6,22 +6,19 @@ import com.example.pointer.model.network.request.UserApiRequest;
 import com.example.pointer.model.network.response.UserApiResponse;
 import com.example.pointer.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/create")
+@RequestMapping(value = "/api/create",method = RequestMethod.GET)
 public class CreateAccountController {
 
     @Autowired
     private UserRepository userRepository;
 
-    @PostMapping("/createAccount/")
+    @PostMapping(value = "/createAccount/")
     public String createAccount(@RequestParam String user_id, @RequestParam String user_pw) {
        Optional<User> optional = Optional.ofNullable(userRepository.findFirstByAccount(user_id));
 

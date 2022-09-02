@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- ===============================================-->
+  <!--    Document Title-->
+  <!-- ===============================================-->
+  <title>PO-inter</title>
+
+  <!-- ===============================================-->
+  <!--    Favicons-->
+  <!-- ===============================================-->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/favicon-16x16.png">
+  <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicons/favicon.ico">
+  <link rel="manifest" href="assets/img/favicons/manifest.json">
+  <meta name="msapplication-TileImage" content="assets/img/favicons/mstile-150x150.png">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- ===============================================-->
+  <!--    Stylesheets-->
+  <!-- ===============================================-->
+  <link href="assets/css/theme.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
+    crossorigin="anonymous"></script>
+
+</head>
+
+
+<body>
+
+  <!-- ===============================================-->
+  <!--    Main Content-->
+  <!-- ===============================================-->
+  <main class="main" id="top">
+
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top py-3 d-block" data-navbar-on-scroll="data-navbar-on-scroll">
+      <div class="container"><a class="navbar-brand" href="/home"><img src="assets/img/gallery/logo-po.png" height="45" alt="logo" /></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"> </span></button>
+        <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base">
+            <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="/home">Home</a></li>
+            <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="/script">면접답변 생성</a></li>
+            <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="/interview">모의면접 응시</a></li>
+            <li class="nav-item px-2"><a class="nav-link active" aria-current="page" href="/result">나의 면접</a></li>
+          </ul><a class="btn btn-primary order-1 order-lg-0" aria-current="page" href="/login">LOGIN</a>
+        </div>
+      </div>
+    </nav>
+
+
+    <!-- ============================================-->
+    <!-- <section> begin ============================-->
+    <section class="bg-600">
+
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h1 class="mb-5 fw-bold text-center">나의 모의면접 분석결과</h1>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="container-fluid px-4">
+            <h5 class="mb-4 fw-bold">응시회차: 4회차<br>응시일자: 2021년 10월 12일(화)</h5>
+            <div class="row">
+              <div class="col-xl-6">
+                <div class="card mb-4">
+                  <div class="card-header fw-bold">시선 움직임</div>
+                  <div class="card-body"><canvas id="canvas" width="100%" height="45"></canvas></div>
+                </div>
+              </div>
+              <div class="col-xl-6">
+                <div class="card mb-4">
+                  <div class="card-header fw-bold">눈 깜빡임</div>
+                  <div class="card-body">
+                    <div class="col">
+                      <canvas id="myAreaChart" width="100%" height="35"></canvas>
+                      <div class="fs--1 my-3 fw-bold text-center">회원님은 4회차에 분당 35회 깜빡이셨습니다. 5회 이상 줄여 보세요!</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="row">
+          <div class="col-xl-4">
+            <div class="card mb-4">
+              <div class="card-header fw-bold">고개 움직임 (좌우)</div>
+              <div class="card-body"><canvas id="myAreaChart-x" width="100%" height="50"></canvas></div>
+            </div>
+          </div>
+          <div class="col-xl-4">
+            <div class="card mb-4">
+              <div class="card-header fw-bold">고개 움직임 (상하)</div>
+              <div class="card-body"><canvas id="myAreaChart-y" width="100%" height="50"></canvas></div>
+            </div>
+          </div>
+          <div class="col-xl-4">
+            <div class="card mb-4">
+              <div class="card-header fw-bold">고개 움직임 기록</div>
+              <div class="card-body">
+                <div class="col">
+                  <canvas id="myAreaChart-z" width="100%" height="30"></canvas>
+                  <div class="fs--1 my-2 mb-3 fw-bold text-center">회원님은 4회차에 고개를 분당 평균 1회 움직이셨습니다. 잘 하고 계세요!</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="col-xl-12">
+          <div class="card mb-4">
+            <div class="card-header fw-bold">언어적 지표 분석</div>
+            <div class="card-body">
+              <div class="row align-items-center">
+                <div class="col-md-6 col-lg-6 order-0 order-md-1 text-end">
+                  <canvas id="radarChart" width="100%" height="60"></canvas>
+                </div>
+                <div class="col-md-4 col-lg-6 order-0 order-md-2 text-center">
+                  <table class="table">
+                    <thead>
+                      <tr class="table-light">
+                        <th scope="col">주요 성향</th>
+                        <th scope="col">본인</th>
+                        <th scope="col">평균</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="fw-bold">추임새</td>
+                        <td>4회</td>
+                        <td>8.25회</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold">떨림</td>
+                        <td>1회</td>
+                        <td>4.5회</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold">침묵</td>
+                        <td>1초</td>
+                        <td>8.5초</td>
+                      </tr>
+                      <tr>
+                        <td class="fw-bold">빠르기</td>
+                        <td>4.92</td>
+                        <td>3.27</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-12">
+          <div class="card mb-4">
+            <div class="card-header fw-bold">모의면접 스크립트 분석</div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-4 col-lg-6 order-0 order-md-1">
+                  <div class="card h-100">
+                    <div class="card-body">
+                      <p class="card-text">내가 생각하는 저희 가치는 포스코의 평균 연봉이 연이(떨림)보다 높은 1억 5천입니다 그 이유는 제가 그(추임새) 포스코 입사하기 위해 쌓은 경험과
+                        지식들을 발휘하여 포스코가 요구하는 업무를(떨림) 그(추임새) 때문입니다 평균 연봉 보다 5천 더 높은 이유는 제가 가지고 있는 잠재력과 미래를 준비하는 저의 정신입니다 이를 통해
+                        그(추임새) 앞으로 포스코가 바라는 미래(떨림)를 이끌고 더 나아가 더 좋은 길을 제시할 것입니다 이런 이유로 내가 생각하는 저희가 가치는 포스코의 연봉 보다(떨림) 높은 1억
+                        5천입니다(떨림)</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-6 order-0 order-md-2 text-center">
+                  <div class="col align-items-center">
+                    <div class="col my-2">
+                      <canvas id="lineChart" width="80%" height="30"></canvas>
+                    </div>
+                    <table class="table table-sm">
+                      <thead>
+                        <tr class="table-light">
+                          <th scope="col"></th>
+                          <th scope="col">1회차</th>
+                          <th scope="col">2회차</th>
+                          <th scope="col">3회차</th>
+                          <th scope="col">4회차</th>
+                          <th scope="col">평가</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="fw-bold">추임새</td>
+                          <td>18회</td>
+                          <td>6회</td>
+                          <td>2회</td>
+                          <td>3회</td>
+                          <td class="text-blue">-50%</td>
+                        </tr>
+                        <tr>
+                          <td class="fw-bold">떨림</td>
+                          <td>11회</td>
+                          <td>11회</td>
+                          <td>7회</td>
+                          <td>5회</td>
+                          <td class="text-danger">+29%</td>
+                        </tr>
+                        <tr>
+                          <td class="fw-bold">침묵</td>
+                          <td>13초</td>
+                          <td>10초</td>
+                          <td>7초</td>
+                          <td>5초</td>
+                          <td class="text-danger">+29%</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end of .container-->
+
+    </section>
+    <!-- <section> close ============================-->
+    <!-- ============================================-->
+
+  </main>
+  <!-- ===============================================-->
+  <!--    End of Main Content-->
+  <!-- ===============================================-->
+
+
+
+
+  <!-- ===============================================-->
+  <!--    JavaScripts-->
+  <!-- ===============================================-->
+  <script src="vendors/@popperjs/popper.min.js"></script>
+  <script src="vendors/bootstrap/bootstrap.min.js"></script>
+  <script src="vendors/is/is.min.js"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+  <script src="vendors/fontawesome/all.min.js"></script>
+  <script src="assets/js/theme.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+    crossorigin="anonymous"></script>
+  <script src="js/scripts.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+  <script src="assets/demo/chart-area-demo.js"></script>
+  <script src="assets/demo/chart-bar-demo.js"></script>
+  <script src="assets/demo/chart-scatter-demo.js"></script>
+  <script src="assets/demo/chart-radar-demo.js"></script>
+  <script src="assets/demo/chart-line-demo.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+  <script src="js/datatables-simple-demo.js"></script>
+</body>
+
+</html>
